@@ -1,34 +1,58 @@
 {
-    "name": "yii-extension/template",
+    "name": "yii-extension/simple-view-tailwind",
     "type": "library",
-    "description": "_____",
+    "description": "Simple view tailwind for web application yii3.",
     "keywords": [
-        "_____"
+        "yii3",
+        "tailwind"
     ],
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "yii-extension/fontawesome": "^1.0.0",
+        "yii-extension/tailwind-starter-kit": "^1.0.0",
+        "yiisoft/assets": "^1.0.0",
+        "yiisoft/router": "^3.0@dev",
+        "yiisoft/router-fastroute": "^3.0@dev",
+        "yiisoft/translator-formatter-intl": "^1.0.0",
+        "yiisoft/translator-message-php": "^1.0.0",
+        "yiisoft/yii-event": "^1.0.0",
+        "yiisoft/yii-view": "^3.0@dev"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "roave/infection-static-analysis-plugin": "^1.7",
-        "vimeo/psalm": "^4.3"
+        "codeception/c3": "^2.6.0",
+        "codeception/codeception": "^4.1.20",
+        "codeception/module-asserts": "^1.3.1",
+        "codeception/module-phpbrowser": "^1.0.2",
+        "nyholm/psr7": "^1.3.0",
+        "psr/log": "^1.1",
+        "vimeo/psalm": "^4.7",
+        "yiisoft/config": "^1.0@dev",
+        "yiisoft/error-handler": "^1.0.0",
+        "yiisoft/yii-web": "^3.0@dev"
     },
     "autoload": {
         "psr-4": {
-            "Template\\": "src"
+            "Simple\\View\\Tailwind\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Template\\Tests\\": "tests"
+            "Simple\\View\\Tailwind\\Tests\\": "tests"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
+        },
+        "config-plugin": {
+            "params": "config/params.php",
+            "common": [
+                "config/common/*.php"
+            ],
+            "routes": "config/routes.php"
         }
     },
     "config": {
