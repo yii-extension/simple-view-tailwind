@@ -9,5 +9,5 @@ modules:
     enabled:
         - PhpBrowser:
             url: http://localhost:8080
-        - \Simple\View\Bootstrap5\Tests\Helper\Acceptance
+        - \Simple\View\Tailwind\Tests\Helper\Acceptance
 step_decorators: ~

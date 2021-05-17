@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Simple\View\Bootstrap5\Tests\Acceptance;
+namespace Simple\View\Tailwind\Tests\Acceptance;
 
-use Simple\View\Bootstrap5\Tests\AcceptanceTester;
+use Simple\View\Tailwind\Tests\AcceptanceTester;
 
 final class PageErrorCest
 {

@@ -32,7 +32,7 @@ $config = [
     ],
 ];
 
-$currentUrl = '';
+$currentPath = '';
 $menuItems = [];
 
 if ($user !== [] && !$user->isGuest()) {
@@ -64,11 +64,11 @@ if ($urlMatcher->getCurrentRoute() !== null) {
 ?>
 
 <?=
-    NavBar::widget()
+NavBar::widget()
     ->currentPath($currentPath)
     ->brandLink('/')
     ->brandText('My Proyect')
     ->begin();
 
-    NavBar::end();
+NavBar::end()
 ?>

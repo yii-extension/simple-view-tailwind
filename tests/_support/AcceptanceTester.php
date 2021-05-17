@@ -1,5 +1,5 @@
 <?php
-namespace Simple\View\Bootstrap5\Tests;
+namespace Simple\View\Tailwind\Tests;
 
 /**
  * Inherited Methods
