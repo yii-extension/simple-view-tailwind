@@ -50,7 +50,7 @@ final class ApplicationRunner
         );
 
         /** @psalm-suppress MixedArgumentTypeCoercion */
-        $container = new Container($this->buildConfig($config), $config->get('providers'));
+        $container = new Container($this->buildConfig($config));
 
         // set aliases tests app
         $aliases = $container->get(Aliases::class);

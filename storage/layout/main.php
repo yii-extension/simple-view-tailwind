@@ -27,8 +27,8 @@ $assetManager->register([
     NpmAllAsset::class,
 ]);
 
-$this->setCssFiles($assetManager->getCssFiles());
-$this->setJsFiles($assetManager->getJsFiles());
+$this->addCssFiles($assetManager->getCssFiles());
+$this->addJsFiles($assetManager->getJsFiles());
 ?>
 
 <?php $this->beginPage() ?>
