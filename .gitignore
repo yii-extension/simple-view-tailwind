@@ -22,15 +22,16 @@ composer.phar
 # Mac DS_Store Files
 .DS_Store
 
-# phpunit itself is not needed
+# phpunit
 phpunit.phar
-# local phpunit config
 /phpunit.xml
-# phpunit cache
 .phpunit.result.cache
 
-# node_modules
+#code_coverage
+/code_coverage
+
+#node_modules
 /node_modules
 
-#config
+#config packages
 /config/packages

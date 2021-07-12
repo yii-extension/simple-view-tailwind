@@ -19,7 +19,7 @@
         "yiisoft/translator-formatter-intl": "^1.0.0",
         "yiisoft/translator-message-php": "^1.0.0",
         "yiisoft/yii-event": "^1.0.0",
-        "yiisoft/yii-view": "^3.0@dev"
+        "yiisoft/yii-view": "^1.0.0"
     },
     "require-dev": {
         "codeception/c3": "^2.6.0",
