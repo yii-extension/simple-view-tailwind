@@ -37,7 +37,7 @@ final class NotFoundHandler implements RequestHandlerInterface
         return $this->viewRenderer
             ->withViewPath('@simple-view-tailwind/storage/views')
             ->render(
-                'site/404',
+                '404',
                 [
                     'urlGenerator' => $this->urlGenerator,
                     'urlMatcher' => $this->urlMatcher,
