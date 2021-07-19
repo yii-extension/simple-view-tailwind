@@ -12,7 +12,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "yii-extension/fontawesome": "^1.0.0",
-        "yii-extension/tailwind-starter-kit": "^1.0.0",
+        "yii-extension/tailwind": "^1.0.0",
         "yiisoft/assets": "^1.0.0",
         "yiisoft/router": "^3.0@dev",
         "yiisoft/router-fastroute": "^3.0@dev",

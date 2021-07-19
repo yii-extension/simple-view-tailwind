@@ -3,8 +3,7 @@
 declare(strict_types=1);
 
 use Yii\Extension\Fontawesome\Dev\Css\NpmAllAsset;
-use Yii\Extension\Tailwind\Asset\TailwindStarterKitAsset;
-use Yii\Extension\Tailwind\Asset\TailwindJsAsset;
+use Yii\Extension\Asset\Tailwind\TailwindAsset;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Csrf\CsrfTokenInterface;
 use Yiisoft\Html\Html;
@@ -23,7 +22,7 @@ use Yiisoft\View\WebView;
  */
 
 $assetManager->register([
-    TailwindStarterKitAsset::class,
+    TailwindAsset::class,
     NpmAllAsset::class,
 ]);
 

@@ -14,30 +14,37 @@ use Yiisoft\Router\UrlMatcherInterface;
 $this->setTitle('404');
 ?>
 
-<h1 class="fw-bold">404</h1>
+<div class="justify-center">
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg pb-8">
+        <div class="border-t border-gray-200 text-center pt-8">
+            <h1 class="text-9xl font-bold text-black">404</h1>
+            <p>
+                <?= $translator->translate('The page', [], 'simple-view-tailwind') ?>
+                <strong><?= Html::encode($urlMatcher->getCurrentUri()->getPath()) ?></strong>
+                <?= $translator->translate('not found', [], 'simple-view-tailwind') ?>.
+            </p>
 
-<p class="text-danger">
-    <?= $translator->translate('The page', [], 'simple-view-bootstrap5') ?>
-    <strong><?= Html::encode($urlMatcher->getCurrentUri()->getPath()) ?></strong>
-    <?= $translator->translate('not found', [], 'simple-view-bootstrap5') ?>.
-</p>
+            <hr class="mb-3">
 
-<p>
-    <?= $translator->translate(
-        'The above error occurred while the Web server was processing your request',
-        [],
-        'simple-view-bootstrap5',
-    ) ?>.
-    <br/>
-    <?= $translator->translate(
-        'Please contact us if you think this is a server error. Thank you',
-        [],
-        'simple-view-bootstrap5',
-    ) ?>.
-</p>
+            <p class="text-red-500">
+                <?= $translator->translate(
+                    'The above error occurred while the Web server was processing your request',
+                    [],
+                    'simple-view-tailwind',
+                ) ?>.
+                <br/>
+                <?= $translator->translate(
+                    'Please contact us if you think this is a server error. Thank you',
+                    [],
+                    'simple-view-tailwind',
+                ) ?>.
+            </p>
 
-<hr class="mb-3">
+            <hr class="mb-5">
 
-<a class ="btn btn-danger" href="<?= $urlGenerator->generate('home') ?>">
-    <?= $translator->translate('Go Back Home', [], 'simple-view-bootstrap5') ?>
-</a>
+            <a class ="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="<?= $urlGenerator->generate('home') ?>">
+                <?= $translator->translate('Go Back Home', [], 'simple-view-tailwind') ?>
+            </a>
+        </div>
+    </div>
+</div>

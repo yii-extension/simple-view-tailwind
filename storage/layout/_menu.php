@@ -8,7 +8,6 @@ use Yiisoft\Html\Html;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Translator\TranslatorInterface;
-//**use Yii\Extension\Tailwind\Nav;
 use Yii\Extension\Tailwind\NavBar;
 
 /**
@@ -18,19 +17,6 @@ use Yii\Extension\Tailwind\NavBar;
  * @var UrlGeneratorInterface $urlGenerator
  * @var UrlMatcherInterface $urlMatcher
  */
-
-$config = [
-    'brandText()' => [$translator->translate('My Project', [], 'simple-view-bootstrap5')],
-    'brandImage()' => ['/images/yii-logo.jpg'],
-    'brandImageAttributes()' => [['class' => 'w-6']],
-    'options()' => [['class' => 'navbar navbar-dark navbar-expand-lg bg-dark']],
-    'toggleAttributes()' => [
-        [
-            'class' => 'text-white cursor-pointer text-xl leading-none border border-solid border-transparent ' .
-                'rounded bg-transparent block lg:hidden outline-none focus:outline-none'
-        ],
-    ],
-];
 
 $currentPath = '';
 $menuItems = [];
@@ -63,12 +49,19 @@ if ($urlMatcher->getCurrentRoute() !== null) {
 
 ?>
 
-<?=
-NavBar::widget()
-    ->currentPath($currentPath)
+<?= NavBar::widget()
+    ->attributes(['class' => 'bg-black flex flex-wrap  items-center justify-between p-5'])
+    ->buttonAttributes([
+        'class' => 'inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white' .
+        'hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+    ])
+    ->buttonContainerAttributes(['class' => 'flex md:hidden'])
+    ->brandAttributes(['class' => 'flex-shrink-0 flex items-center'])
+    ->brandImageAttributes(['class' => 'block h-8 w-auto', 'title' => 'yii'])
+    ->brandImage('/images/yii-logo.jpg')
     ->brandLink('/')
     ->brandText('My Proyect')
+    ->brandTextAttributes(['class' => 'font-semibold pl-2 text-white'])
     ->begin();
 
-NavBar::end()
-?>
+NavBar::end();
