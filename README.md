@@ -43,9 +43,15 @@ The code is statically analyzed with [Phan](https://github.com/phan/phan/wiki). 
 ./vendor/bin/phan
 ```
 
-### License
+## License
 
-The Template for Yii Packages is free software. It is released under the terms of the BSD License.
-Please see [`LICENSE`](./LICENSE.md) for more information.
+The `yii-extension/simple-view-tailwind` for Yii Packages is free software.
+
+It is released under the terms of the BSD License. Please see [`LICENSE`](./LICENSE.md) for more information.
 
 Maintained by [Yii Extension](https://github.com/yii-extension).
+
+## Support the project
+
+[![Official website](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](https://www.yiiframework.com/)
+[![Open Collective](https://img.shields.io/badge/Open%20Collective-sponsor-7eadf1?logo=open%20collective&logoColor=7eadf1&labelColor=555555)](https://opencollective.com/yiisoft)
