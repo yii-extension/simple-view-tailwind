@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
+use Yii\Extension\Simple\Forms\Form;
+use Yii\Extension\Tailwind\Nav;
+use Yii\Extension\Tailwind\NavBar;
 use Yiisoft\Csrf\CsrfTokenInterface;
-use Yiisoft\Form\Widget\Form;
-use Yiisoft\Html\Html;
+use Yiisoft\Html\Tag\Button;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Translator\TranslatorInterface;
-use Yii\Extension\Tailwind\NavBar;
 
 /**
  * @var CsrfTokenInterface $csrf
@@ -18,33 +19,30 @@ use Yii\Extension\Tailwind\NavBar;
  * @var UrlMatcherInterface $urlMatcher
  */
 
-$currentPath = '';
+$currentUrl = '';
 $menuItems = [];
 
-if ($user !== [] && !$user->isGuest()) {
+if ($currentUser !== [] && !$currentUser->isGuest()) {
     $menuItems =  [
         [
             'label' => Form::widget()
                 ->action($urlGenerator->generate('logout'))
-                ->options(['csrf' => $csrf, 'encode' => false])
+                ->csrf($csrf)
                 ->begin() .
-                    Html::submitButton(
-                        'Logout (' . Html::encode($user->getIdentity()->getUsername()) . ')',
-                        [
-                            'id' => 'logout',
-                            'encode' => false,
-                        ],
-                    ) .
+                    Button::tag()
+                    ->class('bg-white text-black font-semibold py-2 px-3 hover:text-blue-700 rounded')
+                    ->content(
+                        'Logout (' . $currentUser->getIdentity()->getUsername() . ')'
+                    )
+                    ->id('logout')
+                    ->type('submit') .
                 Form::end(),
-            'encode' => false,
-            'linkOptions' => ['encode' => false],
-            'options' => ['encode' => false],
         ]
     ];
 }
 
 if ($urlMatcher->getCurrentRoute() !== null) {
-    $currentPath = $urlMatcher->getCurrentUri()->getPath();
+    $currentUrl = $urlMatcher->getCurrentUri()->getPath();
 }
 
 ?>
@@ -62,6 +60,12 @@ if ($urlMatcher->getCurrentRoute() !== null) {
     ->brandLink('/')
     ->brandText('My Proyect')
     ->brandTextAttributes(['class' => 'font-semibold pl-2 text-white'])
-    ->begin();
+    ->containerAttributes(['class' => 'container flex flex-wrap items-center justify-between'])
+    ->begin() ?>
 
-NavBar::end();
+    <?= Nav::widget()
+        ->attributes(['class' => 'toggle hidden md:flex md:mt-0 md:w-auto text-bold text-right text-white w-full'])
+        ->currentPath($currentUrl)
+        ->items($menuItems) ?>
+
+<?= NavBar::end();

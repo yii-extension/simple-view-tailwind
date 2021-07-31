@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\Fontawesome\Dev\Css\NpmAllAsset;
 use Yii\Extension\Asset\Tailwind\TailwindAsset;
+use Yii\Extension\Fontawesome\Dev\Css\NpmAllAsset;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Csrf\CsrfTokenInterface;
-use Yiisoft\Html\Html;
+use Yiisoft\Html\Tag\Button;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Translator\TranslatorInterface;
@@ -44,7 +44,7 @@ $this->addJsFiles($assetManager->getJsFiles());
                             'translator' => $translator,
                             'urlGenerator' => $urlGenerator,
                             'urlMatcher' => $urlMatcher,
-                            'user' => $user ?? [],
+                            'currentUser' => $currentUser ?? [],
                         ]
                     ) ?>
                 </header>
