@@ -11,11 +11,12 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4|^8.0",
+        "yii-extension/alert-flash-tailwind": "^1.0.0",
         "yii-extension/fontawesome": "^1.0.0",
         "yii-extension/tailwind": "^1.0.0",
         "yiisoft/assets": "^1.0.0",
-        "yiisoft/router": "^3.0@dev",
         "yiisoft/router-fastroute": "^3.0@dev",
+        "yiisoft/router": "^3.0@dev",
         "yiisoft/translator-formatter-intl": "^1.0.0",
         "yiisoft/translator-message-php": "^1.0.0",
         "yiisoft/yii-event": "^1.0.0",
