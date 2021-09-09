@@ -8,27 +8,27 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Yiisoft\Http\Status;
+use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Translator\TranslatorInterface;
 use Yiisoft\Yii\View\ViewRenderer;
 
 final class NotFoundHandler implements RequestHandlerInterface
 {
+    private CurrentRoute $currentRoute;
     private TranslatorInterface $translator;
     private UrlGeneratorInterface $urlGenerator;
-    private UrlMatcherInterface $urlMatcher;
     private ViewRenderer $viewRenderer;
 
     public function __construct(
+        CurrentRoute $currentRoute,
         TranslatorInterface $translator,
         UrlGeneratorInterface $urlGenerator,
-        UrlMatcherInterface $urlMatcher,
         ViewRenderer $viewRenderer
     ) {
+        $this->currentRoute = $currentRoute;
         $this->translator = $translator;
         $this->urlGenerator = $urlGenerator;
-        $this->urlMatcher = $urlMatcher;
         $this->viewRenderer = $viewRenderer->withControllerName('site');
     }
 
@@ -39,8 +39,8 @@ final class NotFoundHandler implements RequestHandlerInterface
             ->render(
                 '404',
                 [
+                    'currentRoute' => $this->currentRoute,
                     'urlGenerator' => $this->urlGenerator,
-                    'urlMatcher' => $this->urlMatcher,
                     'translator' => $this->translator,
                 ],
             )

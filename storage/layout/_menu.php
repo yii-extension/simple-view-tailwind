@@ -7,18 +7,19 @@ use Yii\Extension\Tailwind\Nav;
 use Yii\Extension\Tailwind\NavBar;
 use Yiisoft\Csrf\CsrfTokenInterface;
 use Yiisoft\Html\Tag\Button;
+use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Translator\TranslatorInterface;
 
 /**
  * @var CsrfTokenInterface $csrf
+ * @var CurrentRoute $currentRoute
  * @var array $menuItems
  * @var TranslatorInterface $translator
  * @var UrlGeneratorInterface $urlGenerator
- * @var UrlMatcherInterface $urlMatcher
  */
 
+$currentUri = '';
 $currentUrl = '';
 $menuItems = [];
 
@@ -41,10 +42,12 @@ if ($currentUser !== [] && !$currentUser->isGuest()) {
     ];
 }
 
-if ($urlMatcher->getCurrentRoute() !== null) {
-    $currentUrl = $urlMatcher->getCurrentUri()->getPath();
-}
+$currentUri = $currentRoute->getUri();
+$currentUrl = '';
 
+if ($currentUri !== null) {
+    $currentUrl = $currentUri->getPath();
+}
 ?>
 
 <?= NavBar::widget()

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Simple\View\Tailwind\ViewInjection\ParametersViewInjection;
-use Yiisoft\Factory\Definition\Reference;
+use Yiisoft\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [

@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 use Yiisoft\Html\Html;
+use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Router\UrlMatcherInterface;
 
 /**
+ * @var CurrentRoute $currentRoute
  * @var UrlGeneratorInterface $urlGenerator
- * @var UrlMatcherInterface $urlMatcher
  */
 
 $this->setTitle('404');
@@ -20,7 +20,7 @@ $this->setTitle('404');
             <h1 class="text-9xl font-bold text-black">404</h1>
             <p>
                 <?= $translator->translate('The page', [], 'simple-view-tailwind') ?>
-                <strong><?= Html::encode($urlMatcher->getCurrentUri()->getPath()) ?></strong>
+                <strong><?= Html::encode($currentRoute->getUri()->getPath()) ?></strong>
                 <?= $translator->translate('not found', [], 'simple-view-tailwind') ?>.
             </p>
 

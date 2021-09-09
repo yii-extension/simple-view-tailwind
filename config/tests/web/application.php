@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use Simple\View\Tailwind\Handler\NotFoundHandler;
+use Yiisoft\Definitions\DynamicReference;
+use Yiisoft\Definitions\Reference;
 use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
-use Yiisoft\Factory\Definition\DynamicReference;
-use Yiisoft\Factory\Definition\Reference;
 use Yiisoft\Middleware\Dispatcher\MiddlewareDispatcher;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
