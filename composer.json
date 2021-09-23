@@ -13,14 +13,16 @@
         "php": "^7.4|^8.0",
         "yii-extension/alert-flash-tailwind": "^1.0",
         "yii-extension/fontawesome": "^1.0",
+        "yii-extension/simple-forms": "^1.0",
         "yii-extension/tailwind": "^1.0",
         "yiisoft/assets": "^1.0",
         "yiisoft/router-fastroute": "^3.0@dev",
         "yiisoft/router": "^3.0@dev",
         "yiisoft/translator-formatter-intl": "^1.0",
         "yiisoft/translator-message-php": "^1.0",
+        "yiisoft/user": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
-        "yiisoft/yii-view": "^2.0"
+        "yiisoft/yii-view": "^3.0"
     },
     "require-dev": {
         "codeception/c3": "^2.6",

@@ -25,11 +25,7 @@ use Yiisoft\View\WebView;
  * @var WebView $this
  */
 
-$assetManager->register([
-    TailwindAsset::class,
-    NpmAllAsset::class,
-    SimpleViewTailwindAsset::class,
-]);
+$assetManager->register([TailwindAsset::class, NpmAllAsset::class, SimpleViewTailwindAsset::class]);
 
 $this->addCssFiles($assetManager->getCssFiles());
 $this->addJsFiles($assetManager->getJsFiles());
@@ -38,20 +34,11 @@ $this->addJsFiles($assetManager->getJsFiles());
 <?php $this->beginPage() ?>
     <!doctype html>
     <html>
-        <?= $this->render('_head', ['csrf' => $csrf]) ?>
+        <?= $this->render('_head') ?>
         <?php $this->beginBody() ?>
             <body class="flex flex-col h-screen">
                 <header>
-                    <?= $this->render(
-                        '_menu',
-                        [
-                            'csrf' => $csrf,
-                            'currentRoute' => $currentRoute,
-                            'translator' => $translator,
-                            'urlGenerator' => $urlGenerator,
-                            'currentUser' => $currentUser ?? [],
-                        ]
-                    ) ?>
+                    <?= $this->render('_menu') ?>
                     <?= AlertFlash::widget([$flash])
                         ->bodyClass('align-middle flex-grow inline-block mr-8')
                         ->bodyTag('p')
@@ -68,7 +55,7 @@ $this->addJsFiles($assetManager->getJsFiles());
                 </main>
 
                 <footer>
-                    <?= $this->render('_footer', ['aliases' => $aliases]) ?>
+                    <?= $this->render('_footer') ?>
                 </footer>
             </body>
         <?php $this->endBody() ?>
