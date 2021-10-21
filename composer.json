@@ -22,7 +22,7 @@
         "yiisoft/translator-message-php": "^1.0",
         "yiisoft/user": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
-        "yiisoft/yii-view": "^3.0"
+        "yiisoft/yii-view": "^4.0"
     },
     "require-dev": {
         "codeception/c3": "^2.6",
