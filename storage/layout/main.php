@@ -25,7 +25,7 @@ use Yiisoft\View\WebView;
  * @var WebView $this
  */
 
-$assetManager->register([TailwindAsset::class, NpmAllAsset::class, SimpleViewTailwindAsset::class]);
+$assetManager->registerMany([TailwindAsset::class, NpmAllAsset::class, SimpleViewTailwindAsset::class]);
 
 $this->addCssFiles($assetManager->getCssFiles());
 $this->addJsFiles($assetManager->getJsFiles());
