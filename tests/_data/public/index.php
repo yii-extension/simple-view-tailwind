@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Simple\App\Runner\WebApplicationRunner;
+use Yiisoft\Yii\Runner\Web\WebApplicationRunner;
 
 require_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
@@ -14,8 +14,10 @@ if (is_file($c3)) {
 
 // PHP built-in server routing.
 if (PHP_SAPI === 'cli-server') {
-    // Serve static files as is.
-    if (is_file(__DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))) {
+    /** @var string */
+    $requestUri = $_SERVER['REQUEST_URI'] ?? '';
+
+    if (is_file(__DIR__ . parse_url($requestUri, PHP_URL_PATH))) {
         return false;
     }
 

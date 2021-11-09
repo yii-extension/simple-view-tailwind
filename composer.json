@@ -22,20 +22,20 @@
         "yiisoft/translator-message-php": "^1.0",
         "yiisoft/user": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
-        "yiisoft/yii-view": "^3.0"
+        "yiisoft/yii-view": "^4.0"
     },
     "require-dev": {
         "codeception/c3": "^2.6",
-        "codeception/codeception": "^4.1.20",
-        "codeception/module-asserts": "^1.3.1",
-        "codeception/module-phpbrowser": "^1.0.2",
+        "codeception/codeception": "^4.1",
+        "codeception/module-asserts": "^1.3",
+        "codeception/module-phpbrowser": "^1.0",
         "nyholm/psr7": "^1.4",
         "psr/log": "^1.1",
         "vimeo/psalm": "^4.7",
         "yii-extension/simple-app": "^1.0",
-        "yiisoft/config": "dev-alternative-implementation",
+        "yiisoft/config": "^1.0@dev",
         "yiisoft/di": "^3.0@dev",
-        "yiisoft/error-handler": "^1.0.0",
+        "yiisoft/error-handler": "^1.0",
         "yiisoft/yii-web": "^3.0@dev"
     },
     "autoload": {
@@ -51,6 +51,9 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
+        },
+        "config-plugin-options": {
+            "source-directory": "config"
         },
         "config-plugin": {
             "params": "params.php",

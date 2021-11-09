@@ -6,7 +6,7 @@ namespace Simple\View\Tailwind\ViewInjection;
 
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetManager;
-use Yiisoft\Router\CurrentRoute;
+use Yiisoft\Router\CurrentRouteInterface;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Session\Flash\Flash;
 use Yiisoft\Translator\TranslatorInterface;
@@ -17,7 +17,7 @@ final class ParametersViewInjection implements CommonParametersInjectionInterfac
 {
     private Aliases $aliases;
     private AssetManager $assetManager;
-    private CurrentRoute $currentRoute;
+    private CurrentRouteInterface $currentRoute;
     private Flash $flash;
     private TranslatorInterface $translator;
     private UrlGeneratorInterface $urlGenerator;
@@ -25,7 +25,7 @@ final class ParametersViewInjection implements CommonParametersInjectionInterfac
     public function __construct(
         Aliases $aliases,
         AssetManager $assetManager,
-        CurrentRoute $currentRoute,
+        CurrentRouteInterface $currentRoute,
         Flash $flash,
         TranslatorInterface $translator,
         UrlGeneratorInterface $urlGenerator
