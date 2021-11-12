@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\Simple\Forms\Form;
+use Yiisoft\Form\Widget\Form;
 use Yii\Extension\Tailwind\Nav;
 use Yii\Extension\Tailwind\NavBar;
 use Yiisoft\Csrf\CsrfTokenInterface;
@@ -12,7 +12,7 @@ use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Translator\TranslatorInterface;
 
 /**
- * @var string $csrf
+ * @var CsrfTokenInterface $csrf
  * @var CurrentRoute $currentRoute
  * @var bool|null $isGuest
  * @var array $menuItems
