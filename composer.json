@@ -56,10 +56,7 @@
         },
         "config-plugin-environments": {
             "tests": {
-                "params": "tests/params.php",
-                "web": [
-                    "tests/web/*.php"
-                ]
+                "params": "tests/params.php"
             }
         }
     },

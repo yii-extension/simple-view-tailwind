@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Simple\View\Tailwind\Handler\NotFoundHandler;
 use Simple\View\Tailwind\ViewInjection\ParametersViewInjection;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
@@ -12,6 +13,10 @@ return [
             '@simple-view-tailwind' => '@vendor/yii-extension/simple-view-tailwind',
             '@layout' => '@simple-view-tailwind/storage/layout',
         ]
+    ],
+
+    'yiisoft/yii/http' => [
+        'notFoundHandler' => NotFoundHandler::class,
     ],
 
     'yiisoft/yii-view' => [

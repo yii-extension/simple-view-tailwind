@@ -18,20 +18,56 @@
 composer require yii-extension/simple-view-tailwind
 ```
 
+## Using translations
+
+By default the package includes the translation into spanish and russian.
+
+The translation is in the `/storage/translations` directory. 
+
+## Translation extractor
+
+```shell
+composer require yiisoft/translator-extractor --prefer-dist
+```
+
+The root directory of simple-app: `config/packages/yiisoft-translator-extractor/console.php`:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Yiisoft\Aliases\Aliases;
+use Yiisoft\Translator\Extractor\Extractor;
+
+/** @var array $params */
+
+return [
+    Extractor::class => [
+        '__construct()' => [
+            'messageReader' => static fn (Aliases $aliases) => new \Yiisoft\Translator\Message\Php\MessageSource(
+                $aliases->get('@simple-view-tailwind/translations')
+            ),
+            'messageWriter' => static fn (Aliases $aliases) => new \Yiisoft\Translator\Message\Php\MessageSource(
+                $aliases->get('@simple-view-tailwind/translations')
+            ),
+        ],
+    ],
+];
+```
+
+The root directory of simple-app:
+
+```shell
+./yii translator/extract --languages=es --only=**/vendor/yii-extension/simple-view-tailwind/storage/**
+```
+
 ### Unit testing
 
 The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
 
 ```shell
 ./vendor/bin/phpunit
-```
-
-### Mutation testing
-
-The package tests are checked with [Infection](https://infection.github.io/) mutation framework. To run it:
-
-```shell
-./vendor/bin/infection
 ```
 
 ## Static analysis
