@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Yiisoft\Yii\Runner\Web\WebApplicationRunner;
+use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 
 require_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
@@ -45,5 +45,5 @@ define('YII_DEBUG', getenv('YII_DEBUG') ?: true);
 define('YII_ENV', getenv('YII_ENV') ?: 'tests');
 
 // Run web application runner
-$runner = new WebApplicationRunner(YII_CONFIG_DIRECTORY, YII_DEBUG, YII_ENV);
+$runner = new HttpApplicationRunner(YII_CONFIG_DIRECTORY, YII_DEBUG, YII_ENV);
 $runner->run();
