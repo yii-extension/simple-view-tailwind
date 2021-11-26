@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 use Yiisoft\Html\Html;
 
-$title = $translator->translate('My Project', [], 'simple-view-bootstrap5');
-
-$this->setTitle(Html::encode($title));
+$this->setTitle($translator->translate('My Project', [], 'simple-view-bootstrap5'));
 ?>
 
 <div class="">

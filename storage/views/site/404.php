@@ -17,7 +17,7 @@ $this->setTitle('404');
 <div class="justify-center">
     <div class="bg-white shadow overflow-hidden sm:rounded-lg pb-8">
         <div class="border-t border-gray-200 text-center pt-8">
-            <h1 class="text-9xl font-bold text-black">404</h1>
+            <h1 class="text-9xl font-bold text-black"><?= Html::encode($this->getTitle()) ?></h1>
             <p>
                 <?= $translator->translate('The page', [], 'simple-view-tailwind') ?>
                 <strong><?= Html::encode($currentRoute->getUri()->getPath()) ?></strong>
