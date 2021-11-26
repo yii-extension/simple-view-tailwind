@@ -2,29 +2,30 @@
 
 declare(strict_types=1);
 
-use Yiisoft\Form\Widget\Form;
 use Yii\Extension\Tailwind\Nav;
 use Yii\Extension\Tailwind\NavBar;
+use Yiisoft\Auth\IdentityInterface;
 use Yiisoft\Csrf\CsrfTokenInterface;
+use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Tag\Button;
 use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Translator\TranslatorInterface;
+use Yiisoft\View\WebView;
 
 /**
  * @var CsrfTokenInterface $csrf
  * @var CurrentRoute $currentRoute
- * @var bool|null $isGuest
+ * @var IdentityInterface $identity
  * @var array $menuItems
  * @var TranslatorInterface $translator
  * @var UrlGeneratorInterface $urlGenerator
- * @var string $userName
+ * @var WebView $this
  */
+$menuItems = $this->getParameter('menuItemsIsGuest', []);
 
-$isGuest = $isGuest ?? null;
-$menuItems = [];
-
-if ($isGuest === false) {
+if (isset($identity) && $identity instanceof IdentityInterface) {
+    $menuItems = $this->getParameter('menuItemsIsNotGuest', []);
     $menuItems =  [
         [
             'label' => Form::widget()
@@ -34,7 +35,7 @@ if ($isGuest === false) {
                     Button::tag()
                     ->class('bg-white text-black font-semibold py-2 px-3 hover:text-blue-700 rounded')
                     ->content(
-                        'Logout (' . $userName . ')'
+                        'Logout (' . $identity->user->username . ')'
                     )
                     ->id('logout')
                     ->type('submit') .
