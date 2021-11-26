@@ -10,7 +10,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.4|^8.0",
+        "php": ">=8.0",
         "yii-extension/alert-flash-tailwind": "^1.0",
         "yii-extension/fontawesome": "^1.0",
         "yii-extension/tailwind": "^1.0",
