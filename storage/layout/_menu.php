@@ -35,7 +35,7 @@ if (isset($identity) && $identity instanceof IdentityInterface) {
                     Button::tag()
                     ->class('bg-white text-black font-semibold py-2 px-3 hover:text-blue-700 rounded')
                     ->content(
-                        'Logout (' . $identity->user->username . ')'
+                        'Logout (' . $identity->account->username . ')'
                     )
                     ->id('logout')
                     ->type('submit') .
