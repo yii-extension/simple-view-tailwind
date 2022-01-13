@@ -26,7 +26,7 @@ $menuItems = $this->getParameter('menuItemsIsGuest', []);
 
 if (isset($identity) && $identity instanceof IdentityInterface) {
     $menuItems = $this->getParameter('menuItemsIsNotGuest', []);
-    $menuItems =  [
+    $menuItems[] =  [
         [
             'label' => Form::widget()
                 ->action($urlGenerator->generate('logout'))
