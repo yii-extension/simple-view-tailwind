@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 use Simple\View\Tailwind\Handler\NotFoundHandler;
-use Simple\View\Tailwind\ViewInjection\ParametersViewInjection;
+use Simple\View\Tailwind\ViewInjection\CommonViewInjection;
+use Simple\View\Tailwind\ViewInjection\LayoutViewInjection;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
@@ -11,7 +12,7 @@ return [
     'yiisoft/aliases' => [
         'aliases' => [
             '@simple-view-tailwind' => '@vendor/yii-extension/simple-view-tailwind',
-            '@layout' => '@simple-view-tailwind/storage/layout',
+            '@layout' => '@simple-view-tailwind/views/layout',
         ]
     ],
 
@@ -21,8 +22,9 @@ return [
 
     'yiisoft/yii-view' => [
         'injections' => [
+            Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
-            Reference::to(ParametersViewInjection::class),
+            Reference::to(LayoutViewInjection::class),
         ],
     ],
 

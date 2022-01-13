@@ -11,6 +11,6 @@ final class HomeAction
 {
     public function run(ViewRenderer $viewRenderer): ResponseInterface
     {
-        return $viewRenderer->withViewPath('@simple-view-tailwind/storage/views')->render('site/home');
+        return $viewRenderer->withViewPath('@simple-view-tailwind/views')->render('site/home');
     }
 }
