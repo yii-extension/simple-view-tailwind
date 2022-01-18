@@ -26,21 +26,20 @@ $menuItems = $this->getParameter('menuItemsIsGuest', []);
 
 if (isset($identity) && $identity instanceof IdentityInterface) {
     $menuItems = $this->getParameter('menuItemsIsNotGuest', []);
-    $menuItems[] =  [
-        [
-            'label' => Form::widget()
-                ->action($urlGenerator->generate('logout'))
-                ->csrf($csrf)
-                ->begin() .
-                    Button::tag()
-                    ->class('bg-white text-black font-semibold py-2 px-3 hover:text-blue-700 rounded')
-                    ->content(
-                        'Logout (' . $identity->account->username . ')'
-                    )
-                    ->id('logout')
-                    ->type('submit') .
-                Form::end(),
-        ]
+    $menuItems[] = [
+        'label' => Form::widget()
+            ->action($urlGenerator->generate('logout'))
+            ->attributes([])
+            ->csrf($csrf)
+            ->begin() .
+                Button::tag()
+                ->class('bg-white text-black font-semibold py-2 px-3 hover:text-blue-700 rounded')
+                ->content(
+                    'Logout (' . $identity->account->username . ')'
+                )
+                ->id('logout')
+                ->type('submit') .
+        Form::end(),
     ];
 }
 
@@ -66,6 +65,7 @@ $currentUrl = $currentRoute->getUri() !== null ? $currentRoute->getUri()->getPat
     <?= Nav::widget()
         ->attributes(['class' => 'toggle hidden md:flex md:mt-0 md:w-auto text-bold text-right text-white w-full'])
         ->currentPath($currentUrl)
-        ->items($menuItems) ?>
+        ->items($menuItems)
+    ?>
 
 <?= NavBar::end();
